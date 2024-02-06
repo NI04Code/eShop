@@ -26,9 +26,12 @@ public class ProductRepository {
         return productId;
     }
 
-    public Product edit(String productId) {
-        // return product that want to be edited by it ID
-        return productData.stream().filter(product -> product.getProductId().equals(productId)).findFirst()
+    public Product edit(Product editedProduct, String productId) {
+        Product productToEdit = productData.stream().filter(product -> product.getProductId().equals(productId)).findFirst()
                                 .orElseThrow(() -> new IllegalArgumentException("Product not found with ID: " + productId));
+
+        productToEdit.setProductName(editedProduct.getProductName());
+        productToEdit.setProductQuantity(editedProduct.getProductQuantity());
+        return productToEdit;
     }
 }
