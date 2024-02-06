@@ -11,7 +11,15 @@ public class Product {
     private String productName;
     private int productQuantity;
 
+    private static long id = 0;
+
     public Product() {
-        this.productId = UUID.randomUUID().toString();
+        this.productId = generateHexId();
     }
+
+    public String generateHexId() {
+        id++;
+        return Long.toHexString(id);
+    }
+
 }
