@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class ProductRepository {
@@ -23,5 +24,11 @@ public class ProductRepository {
     public String delete(String productId) {
         productData.removeIf(product -> product.getProductId().equals(productId));
         return productId;
+    }
+
+    public Product edit(String productId) {
+        // return product that want to be edited by it ID
+        return productData.stream().filter(product -> product.getProductId().equals(productId)).findFirst()
+                                .orElseThrow(() -> new IllegalArgumentException("Product not found with ID: " + productId));
     }
 }
