@@ -8,6 +8,8 @@ class EshopApplicationTests {
 
     @Test
     void contextLoads() {
+
+        EshopApplication.main(new String[] {});
     }
 
 }
