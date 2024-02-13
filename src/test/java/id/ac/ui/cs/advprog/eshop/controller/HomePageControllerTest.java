@@ -7,12 +7,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(MockitoExtension.class)
-public class HomePageControllerTest {
+class HomePageControllerTest {
     @InjectMocks
     private HomepageController homepageController;
 
     @Test
-    public void testHomePage() {
+    void testHomePage() {
         String viewName = homepageController.homePage();
 
         assertEquals("homePage", viewName);

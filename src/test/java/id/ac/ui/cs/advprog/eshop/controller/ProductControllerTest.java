@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductControllerTest {
+class ProductControllerTest {
     @InjectMocks
     private ProductController productController;
 
@@ -38,7 +38,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testCreateProductPage() {
+    void testCreateProductPage() {
         String viewName = productController.createProductPage(model);
 
         assertEquals("createProduct", viewName);
@@ -46,7 +46,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testCreateProductPost() {
+    void testCreateProductPost() {
         String redirectUrl = productController.createProductPost(product, model);
 
         assertEquals("redirect:/product/list", redirectUrl);
@@ -54,7 +54,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testProductListPage() {
+    void testProductListPage() {
         String viewName = productController.productListPage(model);
 
         assertEquals("productList", viewName);
@@ -62,7 +62,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testEditProductPage() {
+    void testEditProductPage() {
         String viewName = productController.editProductPage("eb558e9f-1c39-460e-8860-71af6af63bd6", model);
 
         assertEquals("editProduct", viewName);
@@ -71,7 +71,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testEditProductPost() {
+    void testEditProductPost() {
         Product editedProduct = new Product();
         product.setProductId("le0192");
         product.setProductName("Pak le");
@@ -84,7 +84,7 @@ public class ProductControllerTest {
     }
 
     @Test
-    public void testDeleteProduct() {
+    void testDeleteProduct() {
         String redirectUrl = productController.deleteProduct("eb558e9f-1c39-460e-8860-71af6af63bd6", model);
 
         assertEquals("redirect:/product/list", redirectUrl);

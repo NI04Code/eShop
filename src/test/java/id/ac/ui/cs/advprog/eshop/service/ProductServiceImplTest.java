@@ -18,7 +18,7 @@ import id.ac.ui.cs.advprog.eshop.repository.ProductRepository;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class ProductServiceImplTest {
+class ProductServiceImplTest {
 
     @InjectMocks
     private ProductServiceImpl productService;
@@ -28,11 +28,11 @@ public class ProductServiceImplTest {
 
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
     }
 
     @Test
-    public void testCreate() {
+    void testCreate() {
         Product product = new Product();
         Product createdProduct = productService.create(product);
 
@@ -43,7 +43,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void testFindAll() {
+    void testFindAll() {
         List<Product> allProduct = new ArrayList<>();
         Product product1 = new Product();
         Product product2 = new Product();
@@ -57,7 +57,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void testDelete() {
+    void testDelete() {
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product.setProductName("Pak Bambang");
@@ -76,7 +76,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void testDeleteInvalidId() {
+    void testDeleteInvalidId() {
         Product product = new Product();
         product.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product.setProductName("Pak Bambang");
@@ -95,7 +95,7 @@ public class ProductServiceImplTest {
     }
 
     @Test
-    public void testEdit() {
+    void testEdit() {
         Product productToEdit = new Product();
         productToEdit.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         productToEdit.setProductName("Pak Bambang");
