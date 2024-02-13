@@ -1,12 +1,13 @@
-# tutorial-1
-### Eshop
+# Eshop
 
 ---
 #### Nama: Naufal Ichsan
 #### NPM: 2206082013  
 #### Kelas: Adpro A  
+#### Link App: 
 
 ---
+## TUTORIAL 1
 ## Refleksi 1
 
 Setelah mengerjakan exercise 1 saya menjadi lebih paham mengenai fitur fitur 
@@ -43,5 +44,18 @@ edge case maka meskipun code coverage kita 100% masih bisa ditemukan bug ataupun
 Saya memelajari banyak hal ketika melakukan functional test, terutama terkait selenium webdriver untuk mengakses template html yang diinginkan melalui urlmapping yang telah ditentukan 
 dan untuk menjawab pertanyaan pada modul saya rasa jika kita membuat class java baru dengan setup dan instance variable yang sama akan membuat code kita kurang clean karena itu sama saja dengan menduplikat code 
 yang sudah ada, menurut saya salah satu cara agar code kita tetap clean, yaitu dengan membuat subclass/child class yang inherit functional test class yang sudah kita buat.
+---
+## TUTORIAL 2  
+## Refleksi 1
+ada dua code quality issue yang saya fix diantaranya
+1. Menambahkan deskripsi menggunakan caption pada product list table di template html
+2. Menghapus access modifier public pada setiap class dan method unit test (menggunakan default saja yang sama sama public)
+
+## Refleksi 2
+Menurut saya implementasi projek saat ini sudah menerapkan CI/CD. Kita bisa lihat untuk CInya sendiri dari .yml file 
+yang ada pada workflows github ci.yml akan melakukan test ketika melakukan push dan pull req di branch manapun sonarcloud.yml akan 
+melakukan scanning codenya. Untuk scorecard sendiri di set untuk melakukan scanning hanya ketika push dan pull req dilakukan di branch main
+Sementara untuk cdnya sendiri saya menggunakan PaaS Koyeb.com, setiap kali branch main mendapatkan push atau pull req maka app akan langsung mendeploy ulang 
+ke versi branch main yang baru.
 
 
