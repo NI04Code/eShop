@@ -4,7 +4,7 @@
 #### Nama: Naufal Ichsan
 #### NPM: 2206082013  
 #### Kelas: Adpro A  
-#### Link App: 
+#### Link App: https://eshop-ni04code.koyeb.app/
 
 ---
 ## TUTORIAL 1
