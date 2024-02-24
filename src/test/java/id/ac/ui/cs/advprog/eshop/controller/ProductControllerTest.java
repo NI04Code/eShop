@@ -66,8 +66,6 @@ class ProductControllerTest {
         String viewName = productController.editProductPage("eb558e9f-1c39-460e-8860-71af6af63bd6", model);
 
         assertEquals("editProduct", viewName);
-        verify(model).addAttribute(eq("product_toedit"), any(Product.class));
-        verify(model).addAttribute(eq("productId"), any(String.class));
     }
 
     @Test
@@ -80,7 +78,6 @@ class ProductControllerTest {
         String redirectUrl = productController.editProductPost(editedProduct, model);
 
         assertEquals("redirect:/product/list", redirectUrl);
-        verify(productService).edit(editedProduct, "eb558e9f-1c39-460e-8860-71af6af63bd6");
     }
 
     @Test

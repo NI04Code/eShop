@@ -130,26 +130,19 @@ class ProductRepositoryTest {
     }
 
     @Test
-    void testEditProductIdNull() {
+    void testEditProductIdNotFound() {
         Product editedProduct = new Product();
-        editedProduct.setProductId("a0f9de46-90b1-437d-a0bf-d0821dde9096");
         editedProduct.setProductName("Sampo Cap Usep");
         editedProduct.setProductQuantity(50);
-
-        assertThrows(IllegalArgumentException.class, () ->
-                productRepository.edit(editedProduct, null));
+        Product productToEditNotFound = productRepository.edit(editedProduct, "random string");
+        assertNull(productToEditNotFound);
 
     }
 
     @Test
-    void testEditProductNotFound() {
-        Product editedProduct = new Product();
-        editedProduct.setProductId("a0f9de46-90b1-437d-a0bf-d0821dde9096");
-        editedProduct.setProductName("Sampo Cap Usep");
-        editedProduct.setProductQuantity(50);
-
-        assertThrows(IllegalArgumentException.class, () ->
-                productRepository.edit(editedProduct, "eb558e9f-1c39-460e-8860-71af6af63bd6"));
+    void testFindProductByIdNotFound() {
+        Product productNotFound = productRepository.findById("eb558e9f-1c39-460e-8860-71af6af63bd6");
+        assertNull(productNotFound);
 
     }
 
