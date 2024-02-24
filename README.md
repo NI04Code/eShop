@@ -7,7 +7,9 @@
 #### Link App: https://eshop-ni04code.koyeb.app/
 
 ---
-## TUTORIAL 1
+<details>
+<summary>TUTORIAL 1</summary>
+
 ## Refleksi 1
 
 Setelah mengerjakan exercise 1 saya menjadi lebih paham mengenai fitur fitur 
@@ -44,8 +46,13 @@ edge case maka meskipun code coverage kita 100% masih bisa ditemukan bug ataupun
 Saya memelajari banyak hal ketika melakukan functional test, terutama terkait selenium webdriver untuk mengakses template html yang diinginkan melalui urlmapping yang telah ditentukan 
 dan untuk menjawab pertanyaan pada modul saya rasa jika kita membuat class java baru dengan setup dan instance variable yang sama akan membuat code kita kurang clean karena itu sama saja dengan menduplikat code 
 yang sudah ada, menurut saya salah satu cara agar code kita tetap clean, yaitu dengan membuat subclass/child class yang inherit functional test class yang sudah kita buat.
+
+</details>
 ---
-## TUTORIAL 2  
+
+<details>
+<summary>TUTORIAL 2</summary>  
+
 ## Refleksi 1
 ada dua code quality issue yang saya fix diantaranya
 1. Menambahkan deskripsi menggunakan caption pada product list table di template html
@@ -58,4 +65,21 @@ melakukan scanning codenya. Untuk scorecard sendiri di set untuk melakukan scann
 Sementara untuk cdnya sendiri saya menggunakan PaaS Koyeb.com, setiap kali branch main mendapatkan push atau pull req maka app akan langsung mendeploy ulang 
 ke versi branch main yang baru.
 
+</details>
+
+<details>
+<summary>TUTORIAL 3</summary>
+
+## Refleksi 1
+SOLID Principle yang diimplementasi pada modul
+1. **Single Responsibility Principle (SRP)**: Saya memisahkan antara carController denga  productController dikarenakan keduanya memiliki tanggung jawab terhadap objek yang berbeda.
+2. **Open Closed Principle (OCP)**: Saya menggunakan interface ketika memanggil service pada controller, tujuannya adalah apabila saya ingin menambahkan suatu fitur baru saya tidak perlu mengubah controller ataupun service saya lagi, tetapi hanya perlu membuat interface baru yang nantinya dapat diimplement
+3. **Liskov Substitution Principle (LSP)**: Pada tutorial kali ini belum ada suatu class yang di extend dari class lain sehingga hal ini memenuhi LSP
+4. **Interface Segregation Principle (ISP)**: Pada semua class yang mengimplement interface sudah menggunakan seluruh method dari interfacenya hal ini membuat setiap interface pada modul saya memiliki fungsinya masing masing secara spesifik dan tidak memaksa client untuk menggunakan method yang tidak perlu dipakai
+5. **Dependencies Inversion Principle (DIP)**: Kembali pada penggunaan interface service pada controller disini menciptakan kondisi dimana modul saya bergantung pada abstraksi sehingga details yang ada pada class implementation dapat bergantung pada interface menggunakan autowired
+
+Dengan menerapkan SOLID Principles saya merasa code saya lebih rapi, minim dependensi yang tidak diperlukan dan mudah untuk ditambahkan suatu fitur kedepannya, hal ini membuat code saya lebih mudah di maintain, scalable, adaptable, dan cleaner.
+
+Tanpa menerapkan SOLID Principles saya rasa code saya jauh lebih dirty dan perlu untuk selalu mengubah code yang sudah dibuat, hal ini dapat menyebabkan kesulitan dalam melakukan maintenance terhadap code saya sehingga projek saya tidak bisa berkembang dengan cepat atau kesulitan dalam skalabilitas. 
+</details>
 

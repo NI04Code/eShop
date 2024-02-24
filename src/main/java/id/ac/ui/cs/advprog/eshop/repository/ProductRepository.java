@@ -17,6 +17,15 @@ public class ProductRepository {
         return product;
     }
 
+    public Product findById(String id) {
+        for (Product product: productData) {
+            if (product.getProductId().equals(id)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
     public Iterator<Product> findAll() {
         return productData.iterator();
     }
@@ -26,11 +35,14 @@ public class ProductRepository {
     }
 
     public Product edit(Product editedProduct, String productId) {
-        Product productToEdit = productData.stream().filter(product -> product.getProductId().equals(productId)).findFirst()
-                                .orElseThrow(() -> new IllegalArgumentException("Product not found with ID: " + productId));
+        Product productToEdit = findById(productId);
+        if (productToEdit == null) {
+            return null;
+        }
 
         productToEdit.setProductName(editedProduct.getProductName());
         productToEdit.setProductQuantity(editedProduct.getProductQuantity());
+
         return productToEdit;
     }
 }
