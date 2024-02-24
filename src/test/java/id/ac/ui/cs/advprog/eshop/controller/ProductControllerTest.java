@@ -77,7 +77,7 @@ class ProductControllerTest {
         product.setProductName("Pak le");
         product.setProductQuantity(69);
 
-        String redirectUrl = productController.editProductPost(editedProduct,"eb558e9f-1c39-460e-8860-71af6af63bd6", model);
+        String redirectUrl = productController.editProductPost(editedProduct, model);
 
         assertEquals("redirect:/product/list", redirectUrl);
         verify(productService).edit(editedProduct, "eb558e9f-1c39-460e-8860-71af6af63bd6");

@@ -25,10 +25,12 @@
             <td th:text="${product.productName}"></td>
             <td th:text="${product.productQuantity}"></td>
             <td>
-                <form th:action="@{/product/delete/{id}(id=${product.productId})}" method="get">
+                <form th:action="@{/product/delete}" method="post">
+                    <input type="hidden" th:name="productId" th:value="${product.productId}" />
                     <button type="submit" class="btn btn-danger">Delete</button>
                 </form>
-                <form th:action="@{/product/edit/{id}(id=${product.productId})}" method="get">
+                <form th:action="@{/product/edit}" method="get">
+                    <input type="hidden" th:name="productId" th:value="${product.productId}" />
                     <button type="submit" class="btn btn-warning">Edit</button>
                 </form>
             </td>
