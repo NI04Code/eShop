@@ -79,7 +79,9 @@ SOLID Principle yang diimplementasi pada modul
 5. **Dependencies Inversion Principle (DIP)**: Kembali pada penggunaan interface service pada controller disini menciptakan kondisi dimana modul saya bergantung pada abstraksi sehingga details yang ada pada class implementation dapat bergantung pada interface menggunakan autowired
 
 Dengan menerapkan SOLID Principles saya merasa code saya lebih rapi, minim dependensi yang tidak diperlukan dan mudah untuk ditambahkan suatu fitur kedepannya, hal ini membuat code saya lebih mudah di maintain, scalable, adaptable, dan cleaner.
+salah satu contohnya adalah ketika saya memisah antara ProductController dan CarController yang mempermudah saya dalam membaca code dan menambahkan fitur baru (karena tidak perlu scroll panjang dan bisa langsung dilihat melalui directory)
 
-Tanpa menerapkan SOLID Principles saya rasa code saya jauh lebih dirty dan perlu untuk selalu mengubah code yang sudah dibuat, hal ini dapat menyebabkan kesulitan dalam melakukan maintenance terhadap code saya sehingga projek saya tidak bisa berkembang dengan cepat atau kesulitan dalam skalabilitas. 
+Tanpa menerapkan SOLID Principles saya rasa code saya jauh lebih dirty dan perlu untuk selalu mengubah code yang sudah dibuat, hal ini dapat menyebabkan kesulitan dalam melakukan maintenance terhadap code saya sehingga projek saya tidak bisa berkembang dengan cepat atau kesulitan dalam skalabilitas.
+contoh yang sama ketika Product dan Car controller belum dipisah, maka code akan terlihat jorok, class yang pada directory dinamai ProductController saja tetapi didalamnya terdapat CarController juga, hal ini dapat mebuat programmer lain yang inin membacanya bingung.
 </details>
 
