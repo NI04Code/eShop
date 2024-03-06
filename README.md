@@ -85,3 +85,16 @@ Tanpa menerapkan SOLID Principles saya rasa code saya jauh lebih dirty dan perlu
 contoh yang sama ketika Product dan Car controller belum dipisah, maka code akan terlihat jorok, class yang pada directory dinamai ProductController saja tetapi didalamnya terdapat CarController juga, hal ini dapat mebuat programmer lain yang inin membacanya bingung.
 </details>
 
+<details>
+<summary>TUTORIAL 4</summary>
+
+## Refleksi 1
+1. Menurut saya TDD flow sangat berguna, dengan membuat test terlebih dahulu, saya dapat memastikan bahwa implementasi code saya nantinya memenuhi kebutuhan dari test yang saya buat sebelumnya. Dengan menerapkan TTD code yang saya buat menjadi lebih terstruktur dan terdefinisi dengan jelas.
+2. Unit test yang saya buat telah mengikuti beberapa poin dari FIRST principal
+   - Fast: Test saya hanya memakan waktu milisecond
+   - Isolated: Setiap test berlaku independen tanpa bergantung dengan test lainnya
+   - Repeatable: Hasil test saya selalu konsisten tidak memedulikan urutan pengerjaan testnya
+   - Self-Validating: Test saya tidak perlu untuk dicek secara manual (dapat menvalidasi sendiri)
+   - Thorough: Test saya belum memenuhi keseluruhan edge case khususnya pada test pada tutorial sebelumnya, sehingga perlu dilakukan refactoring kembali pada test yang pernah saya lakukan.
+</details>
+
