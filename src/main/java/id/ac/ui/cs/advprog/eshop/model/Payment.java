@@ -4,6 +4,9 @@ import java.util.Map;
 
 import lombok.Getter;
 
+import enums.payment.PaymentStatus;
+import enums.payment.PaymentMethod;
+
 @Getter
 public class Payment {
     private String id;
@@ -24,19 +27,19 @@ public class Payment {
     }
 
     public void setStatus(String status) {
-        if (status.equals("SUCCESS")) {
+        if (status.equals(PaymentStatus.SUCCESS.getValue())) {
             this.status = status;
-        } else if (status.equals("REJECTED")) {
-            this.status = "FAILED";
+        } else if (status.equals(PaymentStatus.REJECTED.getValue())) {
+            this.status = status;
         } else {
             throw new IllegalArgumentException("Invalid status");
         }
     }
 
     public void setMethod(String method) {
-        if (method.equals("VOUCHER")) {
+        if (method.equals(PaymentMethod.VOUCHER.getValue())) {
             this.method = method;
-        } else if (method.equals("COD")) {
+        } else if (method.equals(PaymentMethod.COD.getValue())) {
             this.method = method;
         } else {
             throw new IllegalArgumentException("Invalid payment method");
@@ -48,8 +51,8 @@ public class Payment {
             throw new IllegalArgumentException("Payment data cannot be null");
         }
 
-        if (this.method.equals("VOUCHER")) {
-            this.setStatus("REJECTED");
+        if (this.method.equals(PaymentMethod.VOUCHER.getValue())) {
+            this.setStatus(PaymentStatus.REJECTED.getValue());
 
             if (paymentData.get("voucherCode").length() != 16) {
                 throw new IllegalArgumentException("Invalid voucher code, must 16 characters long");
@@ -69,10 +72,10 @@ public class Payment {
             }
 
             this.paymentData = paymentData;
-            this.setStatus("SUCCESS");
+            this.setStatus(PaymentStatus.SUCCESS.getValue());
 
-        } else if (this.method.equals("COD")) {
-            this.setStatus("REJECTED");
+        } else if (this.method.equals(PaymentMethod.COD.getValue())) {
+            this.setStatus(PaymentStatus.REJECTED.getValue());
 
             if (paymentData.get("address") == null) {
                 throw new IllegalArgumentException("Address cannot be null");
@@ -85,7 +88,7 @@ public class Payment {
             }
 
             this.paymentData = paymentData;
-            this.setStatus("WAITING_PAYMENT");
+            this.setStatus(PaymentStatus.SUCCESS.getValue());
         } else {
             throw new IllegalArgumentException("Payment method is not VOUCHER");
         }

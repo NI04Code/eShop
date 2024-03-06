@@ -1,4 +1,4 @@
-package enums;
+package enums.order;
 
 import lombok.Getter;
 

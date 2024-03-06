@@ -1,8 +1,9 @@
 package id.ac.ui.cs.advprog.eshop.model;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import enums.payment.PaymentStatus;
+import enums.payment.PaymentMethod;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,14 +37,14 @@ public class PaymentTest {
         assertThrows(IllegalArgumentException.class, () -> {
             Map<String, String> paymentData = new HashMap<>();
             paymentData.put("voucherCode", "ESHOP1234567890123");
-            this.payment = new Payment("paymentId", "VOUCHER", paymentData, null);
+            this.payment = new Payment("paymentId", PaymentMethod.VOUCHER.getValue(), paymentData, null);
         });
     }
 
     @Test
     void testCreatePaymentWithNullPaymentData() {
         assertThrows(IllegalArgumentException.class, () -> {
-            this.payment = new Payment("paymentId", "VOUCHER", null, this.order);
+            this.payment = new Payment("paymentId", PaymentMethod.VOUCHER.getValue(), null, this.order);
         });
     }
 
@@ -52,7 +53,7 @@ public class PaymentTest {
         Map<String, String> paymentData = new HashMap<>();
         paymentData.put("voucherCode", "ESHOP123");
         assertThrows(IllegalArgumentException.class, () -> {
-            this.payment = new Payment("paymentId", "VOUCHER", paymentData, this.order);
+            this.payment = new Payment("paymentId", PaymentMethod.VOUCHER.getValue(), paymentData, this.order);
         });
     }
 
@@ -69,9 +70,9 @@ public class PaymentTest {
     void testCreatePaymentWithSuccessStatus() {
         Map<String, String> paymentData = new HashMap<>();
         paymentData.put("voucherCode", "ESHOP12345678901");
-        this.payment = new Payment("paymentId", "VOUCHER", paymentData, this.order);
-        this.payment.setStatus("SUCCESS");
-        assertEquals("SUCCESS", this.payment.getStatus());
+        this.payment = new Payment("paymentId", PaymentMethod.VOUCHER.getValue(), paymentData, this.order);
+        this.payment.setStatus(PaymentStatus.SUCCESS.getValue());
+        assertEquals(PaymentStatus.SUCCESS.getValue(), this.payment.getStatus());
     }
 
 }
